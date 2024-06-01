@@ -1,21 +1,12 @@
 import "./App.css";
-import { useState } from "react";
-import Home from "./components/Home";
+import { Outlet } from "react-router-dom";
+import NavBar from "./components/NavBar";
 
 const App = () => {
-  const [heading, setHeading] = useState("Magnificent Monkeys");
-
-  const clickHandler = () => {
-    setHeading("Radical Rhinos");
-  };
-
   return (
     <>
-      <Home />
-      <button type="button" onClick={clickHandler}>
-        Click Me
-      </button>
-      <h1>{heading}</h1>
+      <NavBar />
+      <Outlet />
     </>
   );
 };
