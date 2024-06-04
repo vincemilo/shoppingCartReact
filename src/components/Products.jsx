@@ -10,10 +10,6 @@ export default function Products() {
       try {
         const response = await fetch(result, { mode: "cors" });
         const data = await response.json();
-        // let componentArr = data.map((e) => {
-        //   <Product />;
-        // });
-        //console.log(data);
         setProducts(data);
       } catch (error) {
         console.log(error);
@@ -24,11 +20,10 @@ export default function Products() {
 
   return (
     <div className="products">
+      {console.log(products)}
       {products === "Loading..."
         ? products
-        : products.map((e) => (
-            <Product key={e.id} title={e.title} image={e.image} />
-          ))}
+        : products.map((e) => <Product key={e.id} data={e} />)}
     </div>
   );
 }
