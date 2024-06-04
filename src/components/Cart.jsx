@@ -1,3 +1,8 @@
 export default function Cart() {
-  return <h1>cart</h1>;
+  return (
+    <>
+      <h1>cart</h1>
+      Some more stuff
+    </>
+  );
 }
