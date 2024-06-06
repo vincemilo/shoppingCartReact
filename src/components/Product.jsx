@@ -1,3 +1,3 @@
-export default function Product() {
-  return <div className="product">Product here</div>;
+export default function Product(props) {
+  return <div className="product">Product here {props.name}</div>;
 }

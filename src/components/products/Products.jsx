@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Products() {
   const [products, setProducts] = useState(null);
@@ -30,12 +31,12 @@ export default function Products() {
   return (
     <div className="products">
       {products.map((e) => (
-        <div className="product" key={e.id}>
+        <Link to={`${e.id}`} className="product" key={e.id}>
           <img className="prod-image" src={e.image} />
           <div className="prod-title">{e.title}</div>
           <div className="prod-rating">Rating: {e.rating.rate} / 5</div>
           <div className="prod-price">${e.price}</div>
-        </div>
+        </Link>
       ))}
     </div>
   );
