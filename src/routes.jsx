@@ -3,7 +3,7 @@ import Home from "./components/home/Home.jsx";
 import Products from "./components/products/Products.jsx";
 import Cart from "./components/cart/Cart.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
-import Product from "./components/Product.jsx";
+import Product from "./components/product/Product.jsx";
 
 const routes = [
   {
@@ -21,7 +21,7 @@ const routes = [
       },
       {
         path: "products/:id",
-        element: <Product name="blah" />,
+        element: <Product />,
       },
       {
         path: "cart",
