@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import CartButton from "../cartButton/CartButton";
 
 export default function Product() {
   let { id } = useParams();
@@ -36,7 +37,7 @@ export default function Product() {
       <div className="prod-rating">Rating: {product.rating.rate} / 5</div>
       <div className="prod-price">${product.price}</div>
       <div>{product.description}</div>
-      <button>Add to cart</button>
+      <CartButton />
     </div>
   );
 }
