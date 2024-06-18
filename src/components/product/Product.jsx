@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useOutletContext, useParams } from "react-router-dom";
 import CartButton from "../cartButton/CartButton";
 
 export default function Product() {
+  const [handleClick] = useOutletContext();
   let { id } = useParams();
   const [product, setProduct] = useState(null);
   const [error, setError] = useState(null);
@@ -29,7 +30,6 @@ export default function Product() {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>A network error was encountered</p>;
-  console.log(product);
   return (
     <div className="product">
       <img className="prod-image" src={product.image} />
@@ -37,7 +37,7 @@ export default function Product() {
       <div className="prod-rating">Rating: {product.rating.rate} / 5</div>
       <div className="prod-price">${product.price}</div>
       <div>{product.description}</div>
-      <CartButton />
+      <CartButton onClick={handleClick} />
     </div>
   );
 }
