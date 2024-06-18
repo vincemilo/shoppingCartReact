@@ -7,7 +7,7 @@ const App = () => {
   const [itemCount, setItemCount] = useState(0);
   const [cartItems, setCartItems] = useState([]);
 
-  const clickHandler = (itemId) => {
+  const clickHandler = (itemId, num = 1) => {
     let newCart = [];
     if (cartItems.length) {
       newCart = cartItems.map((item) => {
@@ -21,16 +21,13 @@ const App = () => {
       newCart = [{ id: itemId, quantity: 1 }];
     }
     setCartItems(newCart);
-  };
-
-  const handleClick = (num = 1) => {
     setItemCount(itemCount + num);
   };
 
   return (
     <>
       <NavBar itemCount={itemCount} />
-      <Outlet context={[handleClick]} />
+      <Outlet context={[clickHandler, cartItems]} />
     </>
   );
 };

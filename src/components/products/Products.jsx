@@ -40,7 +40,7 @@ export default function Products() {
             <div className="prod-rating">Rating: {e.rating.rate} / 5</div>
             <div className="prod-price">${e.price}</div>
           </Link>
-          <CartButton onClick={handleClick} />
+          <CartButton onClick={handleClick} id={e.id} />
         </div>
       ))}
     </div>
