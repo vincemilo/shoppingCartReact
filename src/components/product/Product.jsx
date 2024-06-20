@@ -4,14 +4,14 @@ import CartButton from "../cartButton/CartButton";
 
 export default function Product() {
   const [handleClick] = useOutletContext();
-  let { id } = useParams();
+  let itemId = Number(useParams().id);
   const [product, setProduct] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
-      let result = `https://fakestoreapi.com/products/${id}`;
+      let result = `https://fakestoreapi.com/products/${itemId}`;
       try {
         const response = await fetch(result, { mode: "cors" });
         if (response.status >= 400) {
@@ -26,7 +26,7 @@ export default function Product() {
       }
     };
     fetchData();
-  }, [id]);
+  }, [itemId]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>A network error was encountered</p>;
@@ -37,7 +37,7 @@ export default function Product() {
       <div className="prod-rating">Rating: {product.rating.rate} / 5</div>
       <div className="prod-price">${product.price}</div>
       <div>{product.description}</div>
-      <CartButton onClick={handleClick} id={id} />
+      <CartButton onClick={handleClick} id={itemId} />
     </div>
   );
 }

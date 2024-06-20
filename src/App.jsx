@@ -8,18 +8,12 @@ const App = () => {
   const [cartItems, setCartItems] = useState([]);
 
   const clickHandler = (itemId, num = 1) => {
-    let newCart = [];
-    if (cartItems.length) {
-      newCart = cartItems.map((item) => {
-        if (item.id === itemId) {
-          return { ...item, quantity: item.quantity + 1 };
-        } else {
-          return [...cartItems, { id: itemId, quantity: 1 }];
-        }
-      });
-    } else {
-      newCart = [{ id: itemId, quantity: 1 }];
-    }
+    const newCart = cartItems;
+    const i = newCart.findIndex((e) => e.id === itemId);
+    console.log(i);
+    if (i > -1)
+      newCart[i] = { ...newCart[i], quantity: newCart[i].quantity + num };
+    else newCart.push({ id: itemId, quantity: num });
     setCartItems(newCart);
     setItemCount(itemCount + num);
   };

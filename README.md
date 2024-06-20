@@ -1,8 +1,15 @@
-# React + Vite
+# Shopping Cart
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Shopping cart simulation using React, React Router, and TDD via Vitest.
 
-Currently, two official plugins are available:
+### Process
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Creating basic skeleton and routes and tested basic functionality navigation
+- Created API call to fetch either multiple products for general product page or individual product for the individual product page as needed
+- Realized I needed to move cart and item count further upstream to keep track of cart buttons on products and individual product page
+- Created a clickHandler to add or update the cart appropriately
+
+###
+
+- Testing of display once basic functionality is in place
+- Styling
