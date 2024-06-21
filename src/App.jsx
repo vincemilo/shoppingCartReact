@@ -10,7 +10,6 @@ const App = () => {
   const clickHandler = (itemId, num = 1) => {
     const newCart = cartItems;
     const i = newCart.findIndex((e) => e.id === itemId);
-    console.log(i);
     if (i > -1)
       newCart[i] = { ...newCart[i], quantity: newCart[i].quantity + num };
     else newCart.push({ id: itemId, quantity: num });

@@ -1,35 +1,15 @@
-import { useEffect, useState } from "react";
 import { Link, useOutletContext } from "react-router-dom";
 import CartButton from "../cartButton/CartButton";
+import useFetch from "../../useFetch";
 
 export default function Products() {
   const [handleClick] = useOutletContext();
-  const [products, setProducts] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      let result = "https://fakestoreapi.com/products?limit=9";
-      try {
-        const response = await fetch(result, { mode: "cors" });
-        if (response.status >= 400) {
-          throw new Error("server error");
-        }
-        const data = await response.json();
-        setProducts(data);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, []);
-
+  const { data, loading, error } = useFetch(
+    "https://fakestoreapi.com/products?limit=9"
+  );
+  let products = data;
   if (loading) return <p>Loading...</p>;
   if (error) return <p>A network error was encountered</p>;
-
   return (
     <div className="products">
       {products.map((e) => (

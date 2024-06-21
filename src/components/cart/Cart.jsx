@@ -6,7 +6,7 @@ export default function Cart() {
   return (
     <>
       <h1>Cart</h1>
-      {/* <ul>
+      <ul>
         {cartItems.length ? (
           cartItems.map(({ id, quantity }) => {
             return (
@@ -18,7 +18,7 @@ export default function Cart() {
         ) : (
           <li>Your cart is currently empty</li>
         )}
-      </ul> */}
+      </ul>
     </>
   );
 }
