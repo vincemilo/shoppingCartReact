@@ -9,6 +9,7 @@ Shopping cart simulation using React, React Router, and TDD via Vitest.
 - Realized I needed to move cart and item count further upstream to keep track of cart buttons on products and individual product page
 - Created a clickHandler to add or update the cart appropriately
 - Created custom useFetch hook to clean up product(s) components
+- Figured out I needed to pass entire item to cart rather than just id and quantity in order to get totals, image, etc.
 
 ###
 

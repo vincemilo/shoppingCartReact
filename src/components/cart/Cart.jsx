@@ -1,17 +1,19 @@
 import { useOutletContext } from "react-router-dom";
 
 export default function Cart() {
-  const [, cartItems] = useOutletContext();
-  console.log(cartItems);
+  const [clickHandler, cartItems, total] = useOutletContext();
+
   return (
     <>
       <h1>Cart</h1>
       <ul>
         {cartItems.length ? (
-          cartItems.map(({ id, quantity }) => {
+          cartItems.map((e) => {
             return (
-              <li key={id}>
-                Id:{id}, Quantity:{quantity}
+              <li key={e.id}>
+                <img src={e.image} className="cart-img" />, {e.title}, $
+                {e.price}, Quantity:
+                {e.quantity}
               </li>
             );
           })
@@ -19,6 +21,7 @@ export default function Cart() {
           <li>Your cart is currently empty</li>
         )}
       </ul>
+      <div>Subtotal: {total} </div>
     </>
   );
 }

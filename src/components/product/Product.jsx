@@ -18,7 +18,7 @@ export default function Product() {
       <div className="prod-rating">Rating: {product.rating.rate} / 5</div>
       <div className="prod-price">${product.price}</div>
       <div>{product.description}</div>
-      <CartButton onClick={handleClick} id={itemId} />
+      <CartButton onClick={handleClick} item={product} />
     </div>
   );
 }

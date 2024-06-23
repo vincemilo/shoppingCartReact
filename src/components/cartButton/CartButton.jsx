@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
-export default function CartButton({ onClick, id }) {
-  return <button onClick={() => onClick(id)}>Add to Cart</button>;
+export default function CartButton({ onClick, item }) {
+  return <button onClick={() => onClick(item)}>Add to Cart</button>;
 }
 
 CartButton.propTypes = {
