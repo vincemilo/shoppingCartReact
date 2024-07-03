@@ -1,4 +1,5 @@
 import { useOutletContext } from "react-router-dom";
+import UpdateQuantity from "../updateQuantity/UpdateQuantity";
 
 export default function Cart() {
   const [clickHandler, cartItems, total] = useOutletContext();
@@ -12,8 +13,8 @@ export default function Cart() {
             return (
               <li key={e.id}>
                 <img src={e.image} className="cart-img" />, {e.title}, $
-                {e.price}, Quantity:
-                {e.quantity}
+                {e.price},
+                <UpdateQuantity quantity={e.quantity} />
               </li>
             );
           })
