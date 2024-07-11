@@ -26,10 +26,24 @@ const App = () => {
     setItemCount(itemCount + num);
   };
 
+  const updateCart = (item, num) => {
+    const newCart = cartItems;
+    const i = newCart.findIndex((e) => e.id === item.id);
+    console.log(num);
+    const newTotal = total - item.price * item.quantity;
+    const newCount = itemCount - item.quantity;
+    num <= 0
+      ? newCart.splice(i, 1)
+      : (newCart[i] = { ...newCart[i], quantity: num });
+    setCartItems(newCart);
+    setTotal(newTotal + item.price * num);
+    setItemCount(newCount + num);
+  };
+
   return (
     <>
       <NavBar itemCount={itemCount} />
-      <Outlet context={[clickHandler, cartItems, total]} />
+      <Outlet context={[clickHandler, cartItems, total, updateCart]} />
     </>
   );
 };

@@ -2,7 +2,7 @@ import { useOutletContext } from "react-router-dom";
 import UpdateQuantity from "../updateQuantity/UpdateQuantity";
 
 export default function Cart() {
-  const [clickHandler, cartItems, total] = useOutletContext();
+  const [, cartItems, total, updateQuantity] = useOutletContext();
 
   return (
     <>
@@ -14,7 +14,11 @@ export default function Cart() {
               <li key={e.id}>
                 <img src={e.image} className="cart-img" />, {e.title}, $
                 {e.price},
-                <UpdateQuantity quantity={e.quantity} />
+                <UpdateQuantity
+                  quantity={e.quantity}
+                  updateQuantity={updateQuantity}
+                  item={e}
+                />
               </li>
             );
           })
@@ -22,7 +26,7 @@ export default function Cart() {
           <li>Your cart is currently empty</li>
         )}
       </ul>
-      <div>Subtotal: {total} </div>
+      <div>Subtotal: ${total} </div>
     </>
   );
 }

@@ -1,6 +1,12 @@
 # Shopping Cart
 
-Shopping cart simulation using React, React Router, and TDD via Vitest.
+Shopping cart simulation using React, React Router, with testing via Vitest and React Testing Library.
+
+## Features
+
+- Able to add products to cart
+- Products pulled from FakeStore API
+- Update quantity in cart
 
 ### Process
 
@@ -10,8 +16,9 @@ Shopping cart simulation using React, React Router, and TDD via Vitest.
 - Created a clickHandler to add or update the cart appropriately
 - Created custom useFetch hook to clean up product(s) components
 - Figured out I needed to pass entire item to cart rather than just id and quantity in order to get totals, image, etc.
+- Testing of product component was very obtuse until I discovered useFetch could just be regular mocked and didn't need to be an API mock
 
-###
+### To Do
 
-- Testing of display once basic functionality is in place
+- Update quantity component/delete products from cart
 - Styling
