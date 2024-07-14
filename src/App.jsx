@@ -26,11 +26,14 @@ const App = () => {
     setItemCount(itemCount + num);
   };
 
+  const round = (num) => {
+    return Math.round((num + Number.EPSILON) * 100) / 100;
+  };
+
   const updateCart = (item, num) => {
     const newCart = cartItems;
     const i = newCart.findIndex((e) => e.id === item.id);
-    console.log(num);
-    const newTotal = total - item.price * item.quantity;
+    const newTotal = round(total - item.price * item.quantity);
     const newCount = itemCount - item.quantity;
     num <= 0
       ? newCart.splice(i, 1)

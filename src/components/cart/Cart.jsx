@@ -26,7 +26,7 @@ export default function Cart() {
           <li>Your cart is currently empty</li>
         )}
       </ul>
-      <div>Subtotal: ${total} </div>
+      <div>Subtotal: ${total.toFixed(2)} </div>
     </>
   );
 }
