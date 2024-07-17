@@ -16,7 +16,7 @@ export default function Product() {
       <img className="prod-image" src={product.image} />
       <div className="prod-title">{product.title}</div>
       <div className="prod-rating">Rating: {product.rating.rate} / 5</div>
-      <div className="prod-price">${product.price}</div>
+      <div className="prod-price">${product.price.toFixed(2)}</div>
       <div>{product.description}</div>
       <CartButton onClick={handleClick} item={product} />
     </div>

@@ -3,6 +3,7 @@ export default function UpdateQuantity({ quantity, updateQuantity, item }) {
     <>
       <label>
         Quantity:
+        <button onClick={() => updateQuantity(item, quantity - 1)}>-1</button>
         <input
           type="number"
           value={quantity}
@@ -10,6 +11,7 @@ export default function UpdateQuantity({ quantity, updateQuantity, item }) {
           onChange={(e) => updateQuantity(item, Number(e.target.value))}
         />
       </label>
+      <button onClick={() => updateQuantity(item, quantity + 1)}>+1</button>
     </>
   );
 }

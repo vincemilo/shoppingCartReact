@@ -19,7 +19,8 @@ body {
   gap: 2px;
 }
 
-.product {
+.product,
+.prod-cont {
   display: flex;
   max-width: 200px;
   flex-direction: column;

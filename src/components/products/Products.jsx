@@ -13,12 +13,12 @@ export default function Products() {
   return (
     <div className="products">
       {products.map((e) => (
-        <div key={e.id}>
+        <div key={e.id} className="prod-cont">
           <Link to={`${e.id}`} className="product">
             <img className="prod-image" src={e.image} />
             <div className="prod-title">{e.title}</div>
             <div className="prod-rating">Rating: {e.rating.rate} / 5</div>
-            <div className="prod-price">${e.price}</div>
+            <div className="prod-price">${e.price.toFixed(2)}</div>
           </Link>
           <CartButton onClick={handleClick} item={e} />
         </div>
