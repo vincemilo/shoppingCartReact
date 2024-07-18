@@ -1,5 +1,6 @@
 import { useOutletContext } from "react-router-dom";
 import UpdateQuantity from "../updateQuantity/UpdateQuantity";
+import styles from "../../styles.module.css";
 
 export default function Cart() {
   const [, cartItems, total, updateQuantity] = useOutletContext();
@@ -12,8 +13,8 @@ export default function Cart() {
           cartItems.map((e) => {
             return (
               <li key={e.id}>
-                <img src={e.image} className="cart-img" />, {e.title}, $
-                {e.price},
+                <img src={e.image} className={styles["cart-img"]} />, {e.title},
+                ${e.price},
                 <UpdateQuantity
                   quantity={e.quantity}
                   updateQuantity={updateQuantity}
