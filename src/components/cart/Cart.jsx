@@ -7,26 +7,30 @@ export default function Cart() {
 
   return (
     <>
-      <ul>
-        {cartItems.length ? (
-          cartItems.map((e) => {
-            return (
-              <li key={e.id}>
-                <img src={e.image} className={styles["cart-img"]} />, {e.title},
-                ${e.price},
+      {cartItems.length ? (
+        cartItems.map((e) => {
+          return (
+            <ul key={e.id} className={styles["cart-prod"]}>
+              <li>
+                <img src={e.image} className={styles["cart-img"]} />
+                <li> {e.title}</li>
+              </li>
+              <li>${e.price.toFixed(2)}</li>
+              <li>
                 <UpdateQuantity
                   quantity={e.quantity}
                   updateQuantity={updateQuantity}
                   item={e}
                 />
               </li>
-            );
-          })
-        ) : (
-          <li>Your cart is currently empty</li>
-        )}
-      </ul>
-      <div>Subtotal: ${total.toFixed(2)} </div>
+            </ul>
+          );
+        })
+      ) : (
+        <div className={styles["cart-empty"]}>Your cart is currently empty</div>
+      )}
+
+      <div className={styles.subtotal}>Subtotal: ${total.toFixed(2)} </div>
     </>
   );
 }
