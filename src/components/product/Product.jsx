@@ -10,8 +10,9 @@ export default function Product() {
     `https://fakestoreapi.com/products/${itemId}`
   );
   let product = data;
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>A network error was encountered</p>;
+  if (loading) return <p className={styles.loading}>Loading...</p>;
+  if (error)
+    return <p className={styles.error}>A network error was encountered</p>;
   return (
     <div className={styles.product}>
       <img className={styles["prod-image"]} src={product.image} />

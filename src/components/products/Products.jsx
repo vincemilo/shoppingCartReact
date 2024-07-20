@@ -9,8 +9,9 @@ export default function Products() {
     "https://fakestoreapi.com/products?limit=9"
   );
   let products = data;
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>A network error was encountered</p>;
+  if (loading) return <p className={styles.loading}>Loading...</p>;
+  if (error)
+    return <p className={styles.error}>A network error was encountered</p>;
   return (
     <div className={styles.products}>
       {products.map((e) => (

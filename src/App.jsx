@@ -42,10 +42,18 @@ const App = () => {
     setItemCount(newCount + num);
   };
 
+  const clearCart = () => {
+    setCartItems([]);
+    setTotal(0);
+    setItemCount(0);
+  };
+
   return (
     <>
       <NavBar itemCount={itemCount} />
-      <Outlet context={[clickHandler, cartItems, total, updateCart]} />
+      <Outlet
+        context={[clickHandler, cartItems, total, updateCart, clearCart]}
+      />
     </>
   );
 };
