@@ -17,8 +17,3 @@ Shopping cart simulation using React, React Router, with testing via Vitest and 
 - Created custom useFetch hook to clean up product(s) components
 - Figured out I needed to pass entire item to cart rather than just id and quantity in order to get totals, image, etc.
 - Testing of product component was very obtuse until I discovered useFetch could just be regular mocked and didn't need to be an API mock
-
-### To Do
-
-- Update quantity component/delete products from cart
-- Styling

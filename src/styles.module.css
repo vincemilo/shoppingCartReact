@@ -44,13 +44,13 @@ body {
   max-height: 75px;
 }
 
-a {
+.navbar a {
   text-decoration: none;
   color: black;
   padding: 8px;
 }
 
-a:hover {
+.navbar a:hover {
   color: white;
   background-color: black;
   border-radius: 4px;
