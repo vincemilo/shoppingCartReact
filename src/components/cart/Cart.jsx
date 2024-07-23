@@ -11,27 +11,29 @@ export default function Cart() {
       {cartItems.length ? (
         cartItems.map((e) => {
           return (
-            <ul key={e.id} className={styles["cart-prod"]}>
-              <li>
-                <img src={e.image} className={styles["cart-img"]} />
-              </li>
-              <li> {e.title}</li>
-              <li>${e.price.toFixed(2)}</li>
-              <li>
-                <UpdateQuantity
-                  quantity={e.quantity}
-                  updateQuantity={updateCart}
-                  item={e}
-                />
-              </li>
-            </ul>
+            <div key={e.id}>
+              <ul className={styles["cart-prod"]}>
+                <li>
+                  <img src={e.image} className={styles["cart-img"]} />
+                </li>
+                <li> {e.title}</li>
+                <li>${e.price.toFixed(2)}</li>
+                <li>
+                  <UpdateQuantity
+                    quantity={e.quantity}
+                    updateQuantity={updateCart}
+                    item={e}
+                  />
+                </li>
+              </ul>
+              <div>Subtotal: ${total.toFixed(2)}</div>
+              <CheckoutButton clearCart={clearCart} />
+            </div>
           );
         })
       ) : (
         <div>Your cart is currently empty</div>
       )}
-      <div>Subtotal: ${total.toFixed(2)}</div>
-      <CheckoutButton clearCart={clearCart} />
     </div>
   );
 }
