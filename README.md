@@ -2,6 +2,8 @@
 
 Shopping cart simulation using React, React Router, with testing via Vitest and React Testing Library.
 
+Live preview: https://vincemiloshoppingcart.netlify.app/
+
 ## Features
 
 - Able to add products to cart
